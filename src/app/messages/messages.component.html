@@ -1,6 +1,13 @@
-
-
-
-
-
-
+@if (messageService.message()) {
+  <div class="messages-container">
+    <div class="message" [ngClass]="messageService.message()?.severity">
+      {{ messageService.message()?.text }}
+    </div>
+    <img
+      class="close"
+      src="/assets/icons/close.svg"
+      alt="Close"
+      (click)="onClose()"
+    />
+  </div>
+}

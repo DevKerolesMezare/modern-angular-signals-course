@@ -11,6 +11,9 @@ import {NgClass} from "@angular/common";
     ]
 })
 export class MessagesComponent {
-
-
+    messageService = inject(MessagesService)
+    
+    onClose() {
+        this.messageService.clear();
+    }
 }

@@ -32,7 +32,7 @@ export class HomeComponent {
   #courses = signal<Course[]>([]);
 
   coursesService = inject(CoursesService);
-  loadingService = inject(LoadingService);
+  messageService = inject(MessagesService);
 
   dialog = inject(MatDialog);
 
@@ -63,11 +63,10 @@ export class HomeComponent {
 
   async loadCourses() {
     try {
-      this.loadingService.loadingOn();
       const courses = await this.coursesService.loadAllCourses();
       this.#courses.set(courses.sort(sortCoursesBySeqNo));
     } catch (error) {
-      alert('Failed to load courses. Please try again later.');
+      this.messageService.showMessage('Failed to load courses. Please try again later.', 'error')
       console.error('Error loading courses:', error);
     } 
   }

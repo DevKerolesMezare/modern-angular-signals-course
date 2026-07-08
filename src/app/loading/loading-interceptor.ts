@@ -5,9 +5,9 @@ import { finalize } from 'rxjs';
 import { SkipLoading } from './skip-loading.component';
 
 export const loadingInterceptor: HttpInterceptorFn = (req, next) => {
-  if (req.context.get(SkipLoading)) {
-    return next(req);
-  }
+  // if (req.context.get(SkipLoading)) {
+  //   return next(req);
+  // }
 
   const loadingService = inject(LoadingService);
 
