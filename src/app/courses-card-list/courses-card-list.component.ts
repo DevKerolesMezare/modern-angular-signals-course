@@ -24,13 +24,13 @@ export class CoursesCardListComponent {
       title: 'Edit Course',
       course: course,
     });
-    console.log('New course data:', newCourse);
+    if (!newCourse) return;
 
+    console.log('New course data:', newCourse);
     this.courseUpdated.emit(newCourse);
   }
 
   onCourseDeleted(course: Course) {
-    this.courseDeleted.emit(course.id)
+    this.courseDeleted.emit(course.id);
   }
-  
 }

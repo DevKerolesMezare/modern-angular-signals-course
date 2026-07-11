@@ -29,13 +29,13 @@ export class EditCourseDialogComponent {
   dialogRef = inject(MatDialogRef);
   data: EditCourseDialogData = inject(MAT_DIALOG_DATA);
   coursesService = inject(CoursesService);
-
   formBuilder = inject(FormBuilder);
+
+  category = signal<CourseCategory>('BEGINNER');
 
   form = this.formBuilder.group({
     title: [''],
     longDescription: [''],
-    category: [''],
     iconUrl: [''],
   });
 
@@ -43,13 +43,19 @@ export class EditCourseDialogComponent {
     this.form.patchValue({
       title: this.data?.course?.title,
       longDescription: this.data?.course?.longDescription,
-      category: this.data?.course?.category,
       iconUrl: this.data?.course?.iconUrl,
+    });
+    this.category.set(this.data?.course?.category ?? 'BEGINNER');
+    effect(() => {
+      console.log(`Course category bi-directional binding:
+         ${this.category}`);
     });
   }
 
   async onSave() {
     const courseData = this.form.value as Partial<Course>;
+
+    courseData.category = this.category();
 
     if (this.data?.mode === 'update') {
       await this.saveCourse(this.data?.course!.id, courseData);
