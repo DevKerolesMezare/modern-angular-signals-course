@@ -1,1 +1,24 @@
-<p>course works!</p>
+
+
+<div class="course-container">
+    <div class="coruse-header">
+        <h1>{{course()?.title}}</h1>
+        <img class="course-image" [src]="course()?.iconUrl"/> 
+    </div>
+
+    <div class="table-container">
+        <table class="results-table">
+            @for (lesson of lessons(); track lesson.id) {
+                <tr>
+                    <td>
+                        {{lesson.description}}
+                    </td>
+                    <td>
+                        {{lesson.duration}}
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+ 

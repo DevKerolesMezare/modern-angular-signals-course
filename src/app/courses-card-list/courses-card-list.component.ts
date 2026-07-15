@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { Course } from '../models/course.model';
 import { MatDialog } from '@angular/material/dialog';
 import { openEditCourseDialog } from '../edit-course-dialog/edit-course-dialog.component';
+import { CdkAriaLive } from "../../../node_modules/@angular/cdk/types/_a11y-module-chunk";
 
 @Component({
   selector: 'courses-card-list',
