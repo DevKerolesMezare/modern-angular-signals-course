@@ -6,6 +6,7 @@
   <mat-tab-group>
     <mat-tab label="Beginners">
       <courses-card-list
+        #beginnersList
         (courseDeleted)="onCourseDeletetd($event)"
         (courseUpdated)="onCourseUpdated($event)"
         [courses]="beginnerCourse()"

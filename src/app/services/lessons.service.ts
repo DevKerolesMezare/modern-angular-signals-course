@@ -12,7 +12,10 @@ export class LessonsService {
   env = environment;
   http = inject(HttpClient);
 
-  async loadLessons(config: { courseId?: string; query?: string }) :Promise<Lesson[]>{
+  async loadLessons(config: {
+    courseId?: string;
+    query?: string;
+  }): Promise<Lesson[]> {
     const { courseId, query } = config;
 
     let params = new HttpParams();
@@ -26,12 +29,24 @@ export class LessonsService {
     }
 
     const lessons$ = this.http.get<GetLessonsResponse>(
-      `${this.env.apiRoot}/search-lessons`,{
-          params
-      }
+      `${this.env.apiRoot}/search-lessons`,
+      {
+        params,
+      },
     );
     const response = await firstValueFrom(lessons$);
 
     return response.lessons;
+  }
+
+  async saveLesson(
+    LessonId: string,
+    changes: Partial<Lesson>,
+  ): Promise<Lesson> {
+    const saveLesson$ = this.http.put<Lesson>(
+      `${this.env.apiRoot}/lessons/${LessonId}`,
+      changes,
+    );
+    return firstValueFrom(saveLesson$);
   }
 }

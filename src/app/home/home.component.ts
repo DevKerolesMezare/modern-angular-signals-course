@@ -2,9 +2,11 @@ import {
   Component,
   computed,
   effect,
+  ElementRef,
   inject,
   Injector,
   signal,
+  viewChild,
 } from '@angular/core';
 import { CoursesService } from '../services/courses.service';
 import { Course, sortCoursesBySeqNo } from '../models/course.model';
@@ -36,6 +38,13 @@ export class HomeComponent {
 
   dialog = inject(MatDialog);
 
+
+  beginnersList= viewChild('beginnersList',{
+    read: ElementRef
+  });
+
+
+
   beginnerCourse = computed(() => {
     const courses = this.#courses();
     return courses
@@ -51,6 +60,12 @@ export class HomeComponent {
   });
 
   constructor() {
+    effect(() =>
+    {
+      console.log('beginnerList: ', this.beginnersList())
+    })
+
+
     effect(() => {
       console.log('Beginner courses:', this.beginnerCourse());
       console.log('Advanced courses:', this.advancedCourse());

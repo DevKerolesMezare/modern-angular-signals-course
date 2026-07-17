@@ -1,8 +1,7 @@
-<loading/>
+<loading />
 
 <div class="edit-course-form" [formGroup]="form">
-
-  <h3>{{data.title}}</h3>
+  <h3>{{ data.title }}</h3>
 
   <div class="form-control">
     <label>Course title:</label>
@@ -11,14 +10,18 @@
 
   <div class="form-control">
     <label>Course description:</label>
-    <textarea placeholder="Enter course description"
-    formControlName="longDescription"
+    <textarea
+      placeholder="Enter course description"
+      formControlName="longDescription"
     >
     </textarea>
   </div>
 
+  <course-category-combobox label="Course category" [(value)]="category">
+    <div #title class="title">Course category (via content projection)</div>
+  </course-category-combobox>
 
-  <course-category-combobox label="Course category" [(value)]="category"/>
+  <div class="title">Course category</div>
 
   <div class="form-control">
     <label>Course image:</label>
@@ -26,15 +29,8 @@
   </div>
 
   <div class="form-actions">
+    <button class="btn" (click)="onSave()">Save</button>
 
-    <button class="btn" (click)="onSave()">
-      Save
-    </button>
-
-    <button class="btn" (click)="onCancel()">
-      Cancel
-    </button>
-
+    <button class="btn" (click)="onCancel()">Cancel</button>
   </div>
-
 </div>
