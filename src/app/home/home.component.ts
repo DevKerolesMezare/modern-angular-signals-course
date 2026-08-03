@@ -38,12 +38,9 @@ export class HomeComponent {
 
   dialog = inject(MatDialog);
 
-
-  beginnersList= viewChild('beginnersList',{
-    read: ElementRef
+  beginnersList = viewChild('beginnersList', {
+    read: ElementRef,
   });
-
-
 
   beginnerCourse = computed(() => {
     const courses = this.#courses();
@@ -59,12 +56,16 @@ export class HomeComponent {
       .sort(sortCoursesBySeqNo);
   });
 
-  constructor() {
-    effect(() =>
-    {
-      console.log('beginnerList: ', this.beginnersList())
-    })
+  courses$ = toObservable(this.#courses);
 
+  constructor() {
+    this.courses$.subscribe((courses) => {
+      console.log('Courses$', courses);
+    });
+
+    effect(() => {
+      console.log('beginnerList: ', this.beginnersList());
+    });
 
     effect(() => {
       console.log('Beginner courses:', this.beginnerCourse());
@@ -81,9 +82,12 @@ export class HomeComponent {
       const courses = await this.coursesService.loadAllCourses();
       this.#courses.set(courses.sort(sortCoursesBySeqNo));
     } catch (error) {
-      this.messageService.showMessage('Failed to load courses. Please try again later.', 'error')
+      this.messageService.showMessage(
+        'Failed to load courses. Please try again later.',
+        'error',
+      );
       console.error('Error loading courses:', error);
-    } 
+    }
   }
 
   onCourseUpdated(updatedCourse: Course) {
@@ -113,10 +117,19 @@ export class HomeComponent {
       title: 'Create New Course',
     });
 
-    if(!newCourse)
-      return;
+    if (!newCourse) return;
 
     const newCourses = [...this.#courses(), newCourse];
     this.#courses.set(newCourses);
+  }
+
+  injector = inject(Injector);
+
+  onToObservableExam() {
+    const courses$ = toObservable(this.#courses, {
+      injector: this.injector,
+    });
+
+    courses$.subscribe((courses) => console.log('courses$: ', courses));
   }
 }
