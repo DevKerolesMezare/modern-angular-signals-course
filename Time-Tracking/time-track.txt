@@ -236,175 +236,44 @@ day
 Task :
 start:              7:31 PM 8/3/2026
   
-rest :
-start:
-total rest:
+description:   61     |   65    [Net Time =  28min ]
 
-description:        |       [Net Time =   ]
+end :               8:29 PM 8/3/2026
 
-
-end :
-
-
-Total Time Study [ ]
+Total Time Study [1h]
 ------------------------------------------------------------------
 
 
 
 
-
+day
 -------------------------------------------------------------------
 Task :
-start:
-
-rest :
-start:
-total rest:
-
-description:        |       [Net Time =   ]
+start:          2:00 AM 8/6/2026
 
 
-end :
+description:     66      [Net Time =  10min ]
 
+end :           2:15 AM 8/6/2026
 
-Total Time Study [ ]
+Total Time Study [15min]
 ------------------------------------------------------------------
 
 
-
+day
 -------------------------------------------------------------------
 Task :
-start:
+start:                 8:15 PM 8/7/2026          
 
-rest :
-start:
-total rest:
+description:   67  |   69    ["End section 10-11" Net Time =  20min]
+(End the course)
 
-description:        |       [Net Time =   ]
-
-
-end :
+end :                 9:00 PM 8/7/2026
 
 
-Total Time Study [ ]
+Total Time Study [45min]
 ------------------------------------------------------------------
 
 
-
-
-
--------------------------------------------------------------------
-Task :
-start:
-
-rest :
-start:
-total rest:
-
-description:        |       [Net Time =   ]
-
-
-end :
-
-
-Total Time Study [ ]
-------------------------------------------------------------------
-
-
-
--------------------------------------------------------------------
-Task :
-start:
-
-rest :
-start:
-total rest:
-
-description:        |       [Net Time =   ]
-
-
-end :
-
-
-Total Time Study [ ]
-------------------------------------------------------------------
-
-
-
-
--------------------------------------------------------------------
-Task :
-start:
-
-rest :
-start:
-total rest:
-
-description:        |       [Net Time =   ]
-
-
-end :
-
-
-Total Time Study [ ]
-------------------------------------------------------------------
-
-
-
--------------------------------------------------------------------
-Task :
-start:
-
-rest :
-start:
-total rest:
-
-description:        |       [Net Time =   ]
-
-
-end :
-
-
-Total Time Study [ ]
-------------------------------------------------------------------
-
-
-
-
--------------------------------------------------------------------
-Task :
-start:
-
-rest :
-start:
-total rest:
-
-description:        |       [Net Time =   ]
-
-
-end :
-
-
-Total Time Study [ ]
-------------------------------------------------------------------
-
-
-
--------------------------------------------------------------------
-Task :
-start:
-
-rest :
-start:
-total rest:
-
-description:        |       [Net Time =   ]
-
-
-end :
-
-
-Total Time Study [ ]
-------------------------------------------------------------------
 
 
